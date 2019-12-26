@@ -1,0 +1,33 @@
+﻿{
+  "name": "YouTube Live to Google Calendar",
+  "short_name": "YouTubeLive2Calendar",
+  "version": "1.3.0",
+  "manifest_version": 2,
+  "description": "YouTube Live to Google Calendarは、YouTubeライブにリマインダー(チャンネル通知ではありません)を設定した際、その予定をGoogleカレンダー上に作成します。",
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "jquery-3.4.1.min.js",
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  }
+}
