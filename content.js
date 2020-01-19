@@ -31,34 +31,24 @@ function calender(title, details, place, start_date, end_date, calender_id='') {
 document.body.addEventListener('click', function (event) {
 
     if (event.target.className == 'style-scope ytd-toggle-button-renderer style-compact-gray') {
-        if ($(event.target).parents('.style-scope ytd-rich-grid-renderer').length > 0) {
 
-            if ($(event.target).text().indexOf('設定') >= 0) return;
+        if ($(event.target.offsetParent).attr("aria-pressed") == "false") return;
 
-            var $target = $(event.target).closest('#dismissable');
-            var title = $target.children().find('#video-title-link').attr('title');
-            var video_url = 'https://www.youtube.com' + $target.children().find('#video-title-link').attr('href');
-            var channel = $target.children().find('#avatar-link').attr('title');
-            var date = '20' + $target.children().find('#metadata-line').text().trim().split(/[ に]/).slice(0, 2).join(' ') + ':00';
-        }
-        if ($(event.target).parents('.style-scope ytd-grid-renderer').length > 0) {
-
-            if ($(event.target).text().indexOf('設定') >= 0) return;
-
-            var $target = $(event.target).closest('#dismissable');
-            var title = $target.children().find('#video-title').attr('title');
-            var video_url = 'https://www.youtube.com' + $target.children().find('#video-title').attr('href');
-            var channel = $target.children().find('#text').attr('title');
-            var date = '20' + $target.children().find('#metadata-line').text().trim().split(/[ に]/).slice(0, 2).join(' ') + ':00';
-        }
+        var $dismissable = $(event.target).closest('#dismissable');
+        var video_url = 'https://www.youtube.com' + $dismissable.find('#thumbnail').attr('href');
+        var title = $dismissable.find('#video-title').text().trim();
+        var channel = $dismissable.find('#channel-name #text').text().trim();
+        var date = '20' + $dismissable.find('#metadata-line').text().trim().split(/[ に]/).slice(0, 2).join(' ') + ':00';
+        
+        if (channel == '') channel = $('#channel-header #channel-name #text').text().trim();
     }
     else if (event.target.className == 'ytp-offline-slate-button-text' || event.target.className == 'ytp-offline-slate-button ytp-button') {
 
         if ($(event.target).text().indexOf('設定') >= 0) return;
 
-        var title = $('.ytp-title-link.yt-uix-sessionlink.ytp-title-fullerscreen-link').text();
         var video_url = location.href;
-        var channel = $('#channel-name.style-scope.ytd-video-owner-renderer').children().find('#text').text();
+        var title = $('#info h1').text().trim();
+        var channel = $('#meta-contents #channel-name #text').text().trim();
         var d = $('.ytp-offline-slate-subtitle-text').text().trim().split(/[年月日]/);
         var date = (d.length == 3 ? new Date().getFullYear() : d[d.length - 4]) + '/' + d[d.length - 3] + '/' + d[d.length - 2] + d[d.length - 1] + ':00';
     }
