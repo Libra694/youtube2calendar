@@ -38,7 +38,7 @@ document.body.addEventListener('click', function (event) {
         var video_url = 'https://www.youtube.com' + $dismissable.find('#thumbnail').attr('href');
         var title = $dismissable.find('#video-title').text().trim();
         var channel = $dismissable.find('#channel-name #text').text().trim();
-        var date = '20' + $dismissable.find('#metadata-line').text().trim().split(/[ に]/).slice(0, 2).join(' ') + ':00';
+        var date = $dismissable.find('#metadata-line').text().trim().split(/[ に]/).slice(0, 2).join(' ') + ':00';
         
         if (channel == '') channel = $('#channel-header #channel-name #text').text().trim();
     }
