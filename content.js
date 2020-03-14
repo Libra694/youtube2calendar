@@ -1,4 +1,4 @@
-﻿
+
 function zerofill(num) {
 	return ('0' + num).slice(-2);
 }
