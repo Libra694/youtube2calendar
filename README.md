@@ -1,5 +1,6 @@
 # YouTube Live to Google Calender
 YouTubeライブにリマインダーを設定した際、その予定をGoogleカレンダー上に作成するChrome拡張です。
+
 [![youtube2calendar](https://img.youtube.com/vi/OmUSZAXO7Lg/0.jpg)](https://www.youtube.com/watch?v=OmUSZAXO7Lg)
 
 ## 導入・使い方
@@ -11,4 +12,5 @@ YouTubeライブにリマインダーを設定した際、その予定をGoogle�
 
 ## ストア版
 [Chromeストア](https://chrome.google.com/webstore/detail/youtube-live-to-google-ca/djjcljbdcefigahiaaoinifennidmapi)をご覧ください。
- ※最新版ではない可能性があります
+
+※最新版ではない可能性があります
