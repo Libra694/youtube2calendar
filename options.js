@@ -1,6 +1,5 @@
 
 function save_options() {
-
 	chrome.storage.sync.set({
 		calendar_id: document.getElementById('calendar_id').value
 	});
@@ -8,11 +7,8 @@ function save_options() {
 
 
 function restore_options() {
-
-	chrome.storage.sync.get({
-		calendar_id: null
-	}, function (items) {
-		document.getElementById('calendar_id').value = items.calendar_id;
+	chrome.storage.sync.get({'calendar_id': ''}, (result) => {
+		document.getElementById('calendar_id').value = result.calendar_id;
 	});
 }
 

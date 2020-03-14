@@ -32,7 +32,7 @@ document.body.addEventListener('click', function (event) {
 
 	if (event.target.className == 'style-scope ytd-toggle-button-renderer style-compact-gray') {
 
-		if ($(event.target.offsetParent).attr("aria-pressed") == "false") return;
+		if ($(event.target.offsetParent).attr('aria-pressed') == 'false') return;
 
 		var $dismissable = $(event.target).closest('#dismissable');
 		var video_url = 'https://www.youtube.com' + $dismissable.find('#thumbnail').attr('href');
@@ -61,11 +61,7 @@ document.body.addEventListener('click', function (event) {
 	chrome.runtime.sendMessage(
 		"get_calendar_id",
 		function (response) {
-			if (response) {
-				var calender_url = calender(title, video_url, channel, start_date, end_date, calender_id = response);
-			} else {
-				var calender_url = calender(title, video_url, channel, start_date, end_date);
-			}
+			var calender_url = calender(title, video_url, channel, start_date, end_date, calender_id = response);
 			window.open(calender_url);
 		}
 	);

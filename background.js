@@ -3,9 +3,8 @@ chrome.runtime.onMessage.addListener(
 	function (request, sender, sendResponse) {
 		switch (request) {
 			case 'get_calendar_id':
-				chrome.storage.sync.get(null, function (items) {
-					console.log('get_calendar_id:' + items.calendar_id);
-					sendResponse(items.calendar_id);
+				chrome.storage.sync.get({'calendar_id': ''}, (result) => {
+					sendResponse(result.calendar_id);
 				});
 				break;
 			default:
