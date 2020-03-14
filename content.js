@@ -34,35 +34,35 @@ document.body.addEventListener('click', function (event) {
 
 		if ($(event.target.offsetParent).attr('aria-pressed') == 'false') return;
 
-		var $dismissable = $(event.target).closest('#dismissable');
-		var video_url = 'https://www.youtube.com' + $dismissable.find('#thumbnail').attr('href');
-		var title = $dismissable.find('#video-title').text().trim();
-		var channel = $dismissable.find('#channel-name #text').text().trim();
-		var date = $dismissable.find('#metadata-line').text().trim().split(/[ に]/).slice(0, 2).join(' ') + ':00';
-
-		if (channel == '') channel = $('#channel-header #channel-name #text').text().trim();
+		var video_id = $(event.target).closest('#dismissable').find('#thumbnail').attr('href').replace('/watch?v=', '');
 	}
 	else if (event.target.className == 'ytp-offline-slate-button-text' || event.target.className == 'ytp-offline-slate-button ytp-button') {
 
 		if ($(event.target).text().indexOf('設定') >= 0) return;
 
-		var video_url = location.href;
-		var title = $('#info h1').text().trim();
-		var channel = $('#meta-contents #channel-name #text').text().trim();
-		var d = $('.ytp-offline-slate-subtitle-text').text().trim().split(/[年月日]/);
-		var date = (d.length == 3 ? new Date().getFullYear() : d[d.length - 4]) + '/' + d[d.length - 3] + '/' + d[d.length - 2] + d[d.length - 1] + ':00';
+		var video_id = new URLSearchParams(location.search).get('v');
 	}
 	else return;
 
-	var start_date = new Date(date);
-	var end_date = new Date(date);
-	end_date.setHours(end_date.getHours() + 1);
-
 	chrome.runtime.sendMessage(
-		"get_calendar_id",
-		function (response) {
-			var calender_url = calender(title, video_url, channel, start_date, end_date, calender_id = response);
-			window.open(calender_url);
+		{query: 'get_video_data', video_id : video_id},
+		(response)=> {
+			var title = response.data.items[0].snippet.title;
+			var channel = response.data.items[0].snippet.channelTitle;
+			var date = response.data.items[0].liveStreamingDetails.scheduledStartTime;
+
+			var video_url = 'https://www.youtube.com/watch?v=' + video_id;
+			var start_date = new Date(date);
+			var end_date = new Date(date);
+			end_date.setHours(end_date.getHours() + 1);
+		
+			chrome.runtime.sendMessage(
+				{query: 'get_calendar_id'},
+				(response) => {
+					var calender_url = calender(title, video_url, channel, start_date, end_date, calender_id = response);
+					window.open(calender_url);
+				}
+			);
 		}
 	);
 
