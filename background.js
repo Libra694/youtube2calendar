@@ -8,7 +8,7 @@ chrome.runtime.onMessage.addListener(
 				});
 				break;
 			case 'get_video_data':
-				const key = 'AIzaSyAC641ZlPBmA0YBkTG_0cymrOzNxunnGzI';
+				const key = 'AIzaSyAgQilpJEVbK4gC8uaoNuSSFg_VqBVg-0Q';
 				var vide_id = encodeURIComponent(request.video_id);
 				var url = `https://www.googleapis.com/youtube/v3/videos?id=${vide_id}&key=${key}&part=snippet,liveStreamingDetails`;
 				axios.get(url)
