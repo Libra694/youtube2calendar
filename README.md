@@ -3,7 +3,7 @@ YouTubeライブにリマインダーを設定した際、その予定をGoogle�
 
 [![youtube2calendar](https://img.youtube.com/vi/OmUSZAXO7Lg/0.jpg)](https://www.youtube.com/watch?v=OmUSZAXO7Lg)
 
-## 導入・使い方
+## 導入方法
 1. [リリースページ](https://github.com/Libra694/youtube2calendar/releases/latest)から `youtube2calendar.zip` をダウンロードし解凍
 1. アドレスバーに `chrome://extensions` と入力し開く
 1. 右上の `デベロッパーモード` トグルボタンを有効化
