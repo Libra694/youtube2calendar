@@ -1,9 +1,9 @@
 {
 	"name": "YouTube Live to Google Calendar",
 	"short_name": "YouTubeLive2Calendar",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"manifest_version": 2,
-	"description": "リマインダーを設定したYouTubeライブの予定をGoogleカレンダーに追加します。",
+	"description": "配信予定のYouTubeライブにリマインダーを設定するとその予定をGoogleカレンダーに追加します。",
 	"icons": {
 		"128": "icon.png"
 	},
