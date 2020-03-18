@@ -3,7 +3,7 @@
 	"short_name": "YouTubeReminder+",
 	"version": "2.0.3",
 	"manifest_version": 2,
-	"description": "配信予定のYouTube™ライブにリマインダーを設定すると、その予定をGoogleカレンダー™に追加します。",
+	"description": "YouTube™ライブのリマインダーをGoogleカレンダー™に追加します。",
 	"icons": {
 		"128": "icon.png"
 	},
