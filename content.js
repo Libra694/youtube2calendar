@@ -18,14 +18,16 @@ function date2str(date) {
 }
 
 function calender(title, details, place, start_date, end_date, calender_id = '') {
-	return 'http://www.google.com/calendar/event?' +
-		'action=' + 'TEMPLATE' +
-		'&text=' + encodeURIComponent(title) +
-		'&details=' + encodeURIComponent(details) +
-		'&location=' + encodeURIComponent(place) +
-		'&dates=' + date2str(start_date) + '/' + date2str(end_date) +
-		'&src=' + encodeURIComponent(calender_id) +
-		'&sprop=' + 'Libra694';
+    var url = 'http://www.google.com/calendar/event?action=TEMPLATE';
+    url += '&text=' + encodeURIComponent(title);
+    url += '&details=' + encodeURIComponent(details);
+    url += '&location=' + encodeURIComponent(place);
+    url += '&dates=' + date2str(start_date) + '/' + date2str(end_date);
+    url += '&sprop=' + 'Libra694';
+    if (calender_id != ''){
+        url += '&src=' + encodeURIComponent(calender_id);
+    }
+    return url
 }
 
 document.body.addEventListener('click', function (event) {
