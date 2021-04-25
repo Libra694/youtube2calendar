@@ -36,7 +36,7 @@ document.body.addEventListener('click', function (event) {
 
 		if ($(event.target.offsetParent).attr('aria-pressed') == 'false') return;
 
-		var video_id = $(event.target).closest('#dismissable').find('#thumbnail').attr('href').replace('/watch?v=', '');
+		var video_id = $(event.target).closest('#dismissible').find('#thumbnail').attr('href').replace('/watch?v=', '');
 	}
 	else if (event.target.className == 'ytp-offline-slate-button-text' || event.target.className == 'ytp-offline-slate-button ytp-button') {
 

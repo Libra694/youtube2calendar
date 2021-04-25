@@ -1,7 +1,7 @@
 {
 	"name": "Reminder Plus for YouTube™",
 	"short_name": "YouTubeReminder+",
-	"version": "2.0.4",
+	"version": "2.0.5",
 	"manifest_version": 2,
 	"description": "YouTube™ライブのリマインダーをGoogleカレンダー™に追加します。",
 	"icons": {
